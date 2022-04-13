@@ -145,9 +145,9 @@ public class HW4_TTT {
         if (field[0][2] == dot && field[1][2] == dot && field[2][2] == dot) return true;
         //diag
         if (field[0][0] == dot && field[1][1] == dot && field[2][2] == dot) return true;
-        if (field[0][2] == dot && field[1][1] == dot && field[2][0] == dot) return true;
+        if (field[0][2] == dot && field[1][1] == dot && field[2][0] == dot) return true;*/
         return false;
-    */
+
 
     }
     private static boolean checkDraw() {
