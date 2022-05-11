@@ -1,26 +1,28 @@
 package org.example;
 
-public class Cat extends Animal{
+public class Cat{
+    private String name;
+    private int appetite;
+    private int satiety;
 
-    public Cat(String name){
-        this.name=name;
-        setCounterCat();
+    public Cat(String name, int appetite, int satiety){
+        this.name = name;
+        this.appetite = appetite;
+        this.satiety = satiety;
     }
-    public static void setCounterCat(){counterCat++;}
-    @Override
-    public void run(int len){
-        if(len >=200) {
-            System.out.format("%s пробежал %d м\n", this.name, len);
+    public void eat(Plate p){
+
+        if (!p.decreaseFood(appetite, satiety)){
+            satiety=0;
+            //System.out.format("\nCat %s not satifiety!\n",name);
         }else{
-            System.out.println("Кот не может пробежать больше 200 м!");
+            satiety=0;
+            satiety+=appetite;
+            //System.out.format("\nCat %s satifiety!\n",name);
         }
     }
-    @Override
-    public void swim(int len){
-        System.out.println("Кот не умеет плавать!");
-    }
-    @Override
-    public void getCounter(){
-        System.out.format("Создано котов: %s\n",counterCat);
+
+    public void getSatiety() {
+        System.out.format("Satiety %s: %s\n", name,satiety);
     }
 }
