@@ -2,19 +2,44 @@ package org.example;
 
 public class HomeWorkApp {
     public static void main(String[] args) {
-        Cat[] arrcat = {new Cat("Barsik", 4, 4),
-                new Cat("Murzik", 6, 6),
-                new Cat("Persik", 1, 10),
-                new Cat("Garik", 45, 45),
-                new Cat("Murka", 30, 30)
+        String[][] correctMatrix = {
+                {"3", "5", "12", "33"},
+                {"2", "3", "0", "56"},
+                {"0", "5", "2", "2"},
+                {"1", "2", "7", "8"}
         };
-        Plate plate= new Plate(50);
-        for(int i=0; i < arrcat.length; i++){
-            arrcat[i].eat(plate);
-            arrcat[i].getSatiety();
-        }
-        plate.addFood(1);
-        plate.info();
+        String[][] wrongSizeMatrix = {
+                {"1", "3", "12", "3"},
+                {"43", "12", "1", "5"},
+                {"9", "2", "8", "4"},
+                {"0", ""}
+        };
+        String[][] wrongCharMatrix = {
+                {"1", "as", "2", "12"},
+                {"6", "1", "q", "7"},
+                {"zx", "7", "7", "6"},
+                {"1", "29", "124", "5"}
+        };
 
+        try {
+            System.out.println("Вариант 1:");
+            System.out.println("Сумма всех элементов массива равна " + Converter.strConverter(correctMatrix) + ".\n");
+        } catch (CustomException e) {
+            e.getMessage();
+        }
+
+        try {
+            System.out.println("Вариант 2:");
+            System.out.println("Сумма всех элементов массива равна " + Converter.strConverter(wrongSizeMatrix) + ".\n");
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            System.out.println("Вариант 3:");
+            System.out.println("Сумма всех элементов массива равна " + Converter.strConverter(wrongCharMatrix) + ".\n");
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
